@@ -17,13 +17,6 @@ export class CarsController {
   getCarById( @Param('id', ParseUUIDPipe) id: string) {
     return this.carsService.findOneById(id);
   }
-  // @Get(':id')
-  // getCarById( @Param('id') id: number ) {
-  //   return {
-  //     id: +id,
-  //     car: this.cars[+id]
-  //   }
-  // }
 
   @Post()
   createCar( @Body() body: any ) {
