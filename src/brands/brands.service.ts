@@ -8,11 +8,11 @@ import { Brand } from './entities/brand.entity';
 export class BrandsService {
 
   private brands: Brand[] = [
-    {
-      id: uuid(),
-      name: 'Toyota',
-      createdAt: new Date().getTime()
-    }
+    // {
+    //   id: uuid(),
+    //   name: 'Toyota',
+    //   createdAt: new Date().getTime()
+    // }
   ]
 
   create(createBrandDto: CreateBrandDto) {
@@ -28,7 +28,7 @@ export class BrandsService {
   }
 
   findAll() {
-    return `This action returns all brands`;
+    return this.brands;
   }
 
   findOne(id: string) {
@@ -48,9 +48,15 @@ export class BrandsService {
       }
       return brand;
     });
+    return brandDB;
   }
 
   remove(id: string) {
     this.brands = this.brands.filter(brand => brand.id !== id);
+    return this.brands;
+  }
+
+  fillCarsWithSeedData( brands: Brand[] ) {
+    this.brands = brands;
   }
 }
